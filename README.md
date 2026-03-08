@@ -89,7 +89,7 @@ cvi-ai-assistant/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/cvi-ai-assistant.git
+   git clone https://github.com/bdgaskins27889/cvi-ai-assistant.git
    cd cvi-ai-assistant
    ```
 
