@@ -1,5 +1,7 @@
 # CVI AI Assistant — Generative AI for Community Violence Intervention
 
+> **"Knowledge without experience can miss the moment. Experience without structure can miss the pattern. ETV brings both together through this CVI AI Assistant."**
+
 **DSC 670 — Advanced Uses of Generative AI**  
 **Bellevue University**  
 **Barbara D. Gaskins | Professor Neugebauer | 2026**
@@ -57,7 +59,7 @@ The `fine_tune_model.py` script provides the complete fine-tuning pipeline:
 
 ### Training Data
 
-The `cvi_fine_tuning_data.jsonl` file contains curated training examples covering all five intervention tool categories. Each example follows the chat completion format with system, user, and assistant messages.
+The `cvi_fine_tuning_data.jsonl` file contains 56 curated training examples covering all five intervention tool categories. Each example follows the chat completion format with system, user, and assistant messages. The training data includes scenarios on de-escalation, scenario-based coaching, trauma-informed language reframing, documentation assistance, reflective post-intervention analysis, practitioner wellness, and gang recruitment prevention.
 
 ## Project Structure
 
@@ -68,7 +70,7 @@ cvi-ai-assistant/
 │   └── config.toml                # Streamlit theme and server configuration
 ├── app.py                         # Main Streamlit application
 ├── fine_tune_model.py             # Fine-tuning pipeline script
-├── cvi_fine_tuning_data.jsonl     # Training data for fine-tuning (50 examples)
+├── cvi_fine_tuning_data.jsonl     # Training data for fine-tuning (56 examples)
 ├── requirements.txt               # Python dependencies
 ├── README.md                      # This file
 ├── DEPLOYMENT_GUIDE.md            # Continuous deployment guide for Streamlit Cloud

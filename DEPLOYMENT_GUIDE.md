@@ -284,7 +284,7 @@ cvi-ai-assistant/
 │   └── config.toml                # Streamlit theme and server configuration
 ├── app.py                         # Main Streamlit application (664 lines)
 ├── fine_tune_model.py             # Fine-tuning pipeline script
-├── cvi_fine_tuning_data.jsonl     # Training data (50 examples)
+├── cvi_fine_tuning_data.jsonl     # Training data (56 examples)
 ├── requirements.txt               # Python dependencies
 ├── README.md                      # Project documentation
 ├── DEPLOYMENT_GUIDE.md            # This deployment guide
