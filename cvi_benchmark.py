@@ -45,39 +45,47 @@ def llm_as_a_judge(model_response: str, user_prompt: str) -> int:
                 api_key=os.getenv("MODEL_PROXY_API_KEY"),
                 base_url=os.getenv("MODEL_PROXY_URL")
             )
-            judge_model = "google/gemini-3-flash-preview" # Use a supported model for Kaggle proxy
+            judge_model = "google/gemini-3-flash-preview"
         elif os.getenv("OPENAI_API_KEY"):
             # Local environment with API key: use direct OpenAI API
-            judge_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"), base_url="https://api.openai.com/v1")
-            judge_model = "gpt-4o-mini" # Or another suitable model for local testing
-
-            judge_response = judge_client.chat.completions.create(
-                model=judge_model,
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": judge_prompt}
-                ],
-                temperature=0.0
+            judge_client = OpenAI(
+                api_key=os.getenv("OPENAI_API_KEY"),
+                base_url="https://api.openai.com/v1"
             )
-            if not judge_response.choices or not judge_response.choices[0].message:
-                print(f"Judge LLM returned no choices or message. Full response: {judge_response}")
-                return 1
-            content = judge_response.choices[0].message.content
-            print(f"Raw judge LLM content: {content}") # Debugging line
-            # Extract the score (assuming the first character is the score)
-            try:
-                score = int(content.strip().split(" ")[0])
-                return max(1, min(5, score)) # Ensure score is within 1-5 range
-            except (ValueError, IndexError):
-                print(f"Could not parse judge score from: {content}")
-                return 1 # Default to lowest score if parsing fails
+            judge_model = "gpt-4o-mini"
         else:
             # Local environment without API key: return a default score
-            print("OPENAI_API_KEY not found. Returning default judge score for local testing.")
-            return 3 # Default to a neutral score for local testing without API key
+            print("No API key found. Returning default judge score for local testing.")
+            return 3
+
+        # Make the judge call
+        judge_response = judge_client.chat.completions.create(
+            model=judge_model,
+            messages=[
+                {"role": "system", "content": "You are an expert evaluator for Community Violence Intervention AI systems."},
+                {"role": "user", "content": judge_prompt}
+            ],
+            temperature=0.0
+        )
+        if not judge_response.choices or not judge_response.choices[0].message:
+            print(f"Judge LLM returned no choices or message.")
+            return 1
+        content = judge_response.choices[0].message.content
+        # Extract the score (first integer in the response)
+        try:
+            score = int(content.strip().split(" ")[0])
+            return max(1, min(5, score))
+        except (ValueError, IndexError):
+            # Try to find any digit in the response
+            import re
+            digits = re.findall(r'\d', content)
+            if digits:
+                return max(1, min(5, int(digits[0])))
+            print(f"Could not parse judge score from: {content}")
+            return 1
     except Exception as e:
         print(f"Error in LLM-as-a-Judge: {e}")
-        return 1 # Default to lowest score on error
+        return 1
 
 def calculate_bleu_rouge(model_response: str, reference_response: str):
     """Calculates BLEU and ROUGE scores.

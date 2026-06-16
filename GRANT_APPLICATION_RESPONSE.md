@@ -1,6 +1,6 @@
 # CVI AI Assistant: Kaggle Benchmarks Grant Application Response
 
-> **"Knowledge without experience can miss the moment. Experience without structure can miss the pattern. ETV brings both together through this CVI AI Assistant."**
+> **"Knowledge without experience can miss the moment. Experience without structure can miss the pattern. This CVI AI Assistant brings both together."**
 
 This document outlines the implementation of the CVI AI Assistant benchmark in compliance with the Kaggle Benchmarks Grant application requirements. It details the problem statement, success benchmarks, impact, data usage, scoring methodology, and estimated quota requirements.
 

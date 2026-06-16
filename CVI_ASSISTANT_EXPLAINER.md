@@ -1,6 +1,6 @@
 # CVI AI Assistant: Overview, Use Cases, and Scoring Methodology
 
-> **"Knowledge without experience can miss the moment. Experience without structure can miss the pattern. ETV brings both together through this CVI AI Assistant."**
+> **"Knowledge without experience can miss the moment. Experience without structure can miss the pattern. This CVI AI Assistant brings both together."**
 
 This document provides a clear explanation of the CVI AI Assistant, its intended use within the Community Violence Intervention (CVI) field, and the rigorous methodology used to score its performance.
 

@@ -1,6 +1,6 @@
 # CVI AI Assistant — Generative AI for Community Violence Intervention
 
-> **"Knowledge without experience can miss the moment. Experience without structure can miss the pattern. ETV brings both together through this CVI AI Assistant."**
+> **"Knowledge without experience can miss the moment. Experience without structure can miss the pattern. This CVI AI Assistant brings both together."**
 
 **DSC 670 — Advanced Uses of Generative AI**  
 **Bellevue University**  

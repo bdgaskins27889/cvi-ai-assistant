@@ -1,2 +1,23 @@
+# Secrets and credentials
+.env
+*.env
+.kaggle/
+kaggle.json
+
+# Run artifacts
 *.run.json
 __pycache__/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+*.pyc
+*.pyo
+venv/
+.venv/
